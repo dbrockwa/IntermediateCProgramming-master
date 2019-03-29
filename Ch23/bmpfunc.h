@@ -2,12 +2,12 @@
 #ifndef _BMPFUNC_H_
 #define _BMPFUNC_H_
 #include "bmpimage.h"
-// keep only one color, 
+// keep only one color,
 // clr = 2, keep red
 // clr = 1, keep green
 // clr = 0, keep blue
 void BMP_color(BMP_Image *image, int clr);
-// Invert all of the image data in a BMP image 
+// Invert all of the image data in a BMP image
 // (value = 255 - value)
 void BMP_invert(BMP_Image *image);
 // calculate vertical edges using the given threshold value
@@ -22,4 +22,6 @@ void BMP_checker(BMP_Image *image);
 void BMP_mix(BMP_Image *image);
 // equalize by making the darkest to and brightest to 255
 void BMP_equalize(BMP_Image *image);
+// remove noise from provided image
+void BMP_unhide(BMP_Image *img);
 #endif

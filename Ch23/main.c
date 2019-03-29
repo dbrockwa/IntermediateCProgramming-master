@@ -9,7 +9,7 @@
 int main(int argc, char **argv)
 {
   // Check arguments
-  if (argc < 4) 
+  if (argc < 4)
     {
       printf("Usage: image <input> <function> <output>\n");
       return EXIT_FAILURE;
@@ -17,7 +17,7 @@ int main(int argc, char **argv)
 
   // open the input file
   BMP_Image *img = BMP_open(argv[1]);
-  if (img == NULL) 
+  if (img == NULL)
     {
       return EXIT_FAILURE;
     }
@@ -49,6 +49,10 @@ int main(int argc, char **argv)
     {
       BMP_equalize(img);
     }
+  if (strcmp(argv[2], "unhide") == 0)
+    {
+      BMP_unhide(img);
+    }
   /*
   if (strcmp(argv[2], "histogram") == 0)
     {
@@ -69,7 +73,7 @@ int main(int argc, char **argv)
     {
       printf("Output file invalid!\n");
       BMP_destroy(img);
-      return EXIT_FAILURE;	
+      return EXIT_FAILURE;
   }
   // Destroy the BMP image
   BMP_destroy(img);

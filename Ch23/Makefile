@@ -1,7 +1,7 @@
-CFLAGS = -g -Wall -Wshadow 
+CFLAGS = -std=c99 -g -Wall -Wshadow
 GCC = gcc $(CFLAGS)
 LIBS = -lm
-SRCS = main.c bmpfile.c bmpinvert.c bmpcolor.c bmpedge.c bmpequalize.c bmphistogram.c bmpchecker.c bmpmix.c bmpgray.c
+SRCS = main.c bmpfile.c bmpinvert.c bmpcolor.c bmpedge.c bmpequalize.c bmphistogram.c bmpchecker.c bmpmix.c bmpgray.c bmpunhide.c
 TARGET = image
 OBJS = $(SRCS:%.c=%.o)
 VALGRIND = valgrind --leak-check=full --tool=memcheck --verbose --log-file
@@ -9,8 +9,8 @@ VALGRIND = valgrind --leak-check=full --tool=memcheck --verbose --log-file
 $(TARGET): $(OBJS)
 	$(GCC) $(OBJS) -o $@ $(LIBS)
 
-.c.o: 
-	$(GCC) -c $*.c 
+.c.o:
+	$(GCC) -c $*.c
 
 test: $(TARGET)
 	rm -f -r outputs/*

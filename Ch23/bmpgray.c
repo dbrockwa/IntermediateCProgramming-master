@@ -1,11 +1,11 @@
 // bmpgray.c
 #include "bmpfunc.h"
 #include <stdlib.h>
-static int RGB2Gray(char red, char green, char blue)
+static unsigned int RGB2Gray(char red, char green, char blue)
 {
   // this is a commonly ued formula
   double gray = 0.2989 * red + 0.5870 * green + 0.1140 * blue;
-  return (int) gray;
+  return (unsigned int) gray;
 }
 
 void BMP_gray(BMP_Image *img)
